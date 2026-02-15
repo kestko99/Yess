@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>boss</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+
+body {
+  background:#0f0f14;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container { width:350px; }
+
+.card {
+  background:#181820;
+  border-radius:20px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(0,0,0,0.7);
+}
+
+/* Spinning CD + Rainbow Glow */
+.profile-wrapper {
+  display:flex;
+  justify-content:center;
+  margin-bottom:25px;
+  position:relative;
+}
+
+.profile-wrapper::before {
+  content:"";
+  position:absolute;
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  background:conic-gradient(red,orange,yellow,green,cyan,blue,violet,red);
+  animation:spin 4s linear infinite, pulse 3s ease-in-out infinite;
+  filter:blur(18px);
+  z-index:0;
+}
+
+.profile-img {
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  animation:spin 6s linear infinite;
+  position:relative;
+  z-index:1;
+}
+
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { filter:blur(18px) brightness(1); }
+  50% { filter:blur(22px) brightness(1.4); }
+  100% { filter:blur(18px) brightness(1); }
+}
+
+.username { font-size:22px; font-weight:600; }
+.handle { color:#7d7d8a; font-size:14px; margin-bottom:10px; }
+.views { font-size:13px; color:#aaa; margin-bottom:20px; }
+
+.discord-box {
+  background:#111117;
+  border-radius:12px;
+  padding:12px;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.discord-avatar { width:40px; height:40px; border-radius:50%; }
+.status { color:#888; font-size:12px; }
+
+.link-button {
+  background:#181820;
+  border-radius:12px;
+  padding:14px;
+  margin-top:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  transition:0.25s ease;
+}
+
+.link-button:hover {
+  background:#22222c;
+  transform:translateY(-2px);
+}
+
+.link-left { display:flex; align-items:center; gap:10px; }
+.link-icon { width:24px; height:24px; }
+.arrow { color:#777; }
+a { text-decoration:none; color:white; }
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bg-music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const audio = document.getElementById("bg-music");
+audio.volume = 1.0;
+
+window.addEventListener("load", () => {
+  audio.play().catch(() => {
+    document.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  });
+});
+</script>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="profile-wrapper">
+      <img src="pfp.webp" class="profile-img">
+    </div>
+
+    <div class="username">boss</div>
+    <div class="handle">top hitta</div>
+    <div class="views">👁 37</div>
+
+    <div class="discord-box">
+      <img src="pfp.webp" class="discord-avatar">
+      <div>
+        <div>boss3919</div>
+        <div class="status">Status: Offline<br>Last online: 67 years ago</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Discord -->
+  <a href="https://discord.gg/sketchystock" target="_blank">
+    <div class="link-button">
+      <div class="link-left">
+        <svg class="link-icon" viewBox="0 0 127.14 96.36" fill="#5865F2">
+          <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0 105.89 105.89 0 0 0 19.39 8.09C2.79 33.59-1.71 58.49.56 83.06a105.73 105.73 0 0 0 32.17 16.3Z"/>
+        </svg>
+        <div>Pois stock</div>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+  </a>
+
+  <!-- Telegram -->
+  <a href="https://t.me/Mammonistic" target="_blank">
+    <div class="link-button">
+      <div class="link-left">
+        <svg class="link-icon" viewBox="0 0 240 240">
+          <circle cx="120" cy="120" r="120" fill="#2AABEE"/>
+          <path fill="white" d="M179.5 72.4L150.5 183c-2.2 8-8 10-16.2 6.3l-44.8-33.1-21.6 20.8c-2.4 2.4-4.4 4.4-9 4.4l3.2-45.6 82.9-74.9c3.6-3.2-.8-5-5.6-1.8L47.2 123.4l-43.9-13.7c-8-2.5-8.2-8 1.7-11.9L170.6 64c7.5-2.8 14.1 1.8 8.9 8.4z"/>
+        </svg>
+        <div>Telegram</div>
+      </div>
+      <div class="arrow">→</div>
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>
