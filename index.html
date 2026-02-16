@@ -21,65 +21,61 @@ body{
   justify-content:center;
   align-items:center;
   height:100vh;
-  overflow:hidden;
   position:relative;
   color:white;
 }
 
-/* Dark + Blur overlay */
-body::before{
+/* Dark blur overlay */
+body::after{
   content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  backdrop-filter:blur(6px);
+  inset:0;
   background:rgba(0,0,0,0.55);
-  z-index:-1;
+  backdrop-filter:blur(5px);
+  z-index:0;
 }
 
 .container{
   width:350px;
   text-align:center;
+  position:relative;
+  z-index:1;
 }
 
 .card{
-  background:rgba(24,24,32,0.85);
+  background:rgba(20,20,28,0.85);
   border-radius:20px;
   padding:30px 20px;
   box-shadow:0 0 40px rgba(0,0,0,0.7);
 }
 
-/* Spinning rainbow glow */
+/* Profile + glow */
 .profile-wrapper{
   position:relative;
-  margin-bottom:25px;
+  width:130px;
+  height:130px;
+  margin:0 auto 25px auto;
 }
 
 .profile-wrapper::before{
   content:"";
   position:absolute;
-  width:160px;
-  height:160px;
+  inset:-15px;
   border-radius:50%;
   background:conic-gradient(red,orange,yellow,green,cyan,blue,violet,red);
   animation:spin 4s linear infinite;
   filter:blur(18px);
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
   z-index:0;
 }
 
 .profile-img{
-  width:130px;
-  height:130px;
+  width:100%;
+  height:100%;
   border-radius:50%;
   object-fit:cover;
-  animation:spin 6s linear infinite;
   position:relative;
   z-index:1;
+  animation:spin 6s linear infinite;
 }
 
 @keyframes spin{
@@ -93,19 +89,20 @@ body::before{
 }
 
 .handle{
-  color:#bbbbbb;
+  color:#bbb;
   font-size:14px;
   margin-bottom:10px;
 }
 
 .status{
   font-size:12px;
-  color:#cccccc;
+  color:#ccc;
   margin-top:8px;
 }
 
+/* Buttons */
 .link-button{
-  background:rgba(24,24,32,0.85);
+  background:rgba(24,24,32,0.9);
   border-radius:12px;
   padding:14px;
   margin-top:12px;
