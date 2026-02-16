@@ -21,25 +21,12 @@ body{
   justify-content:center;
   align-items:center;
   height:100vh;
-  position:relative;
   color:white;
-}
-
-/* Dark blur overlay */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  backdrop-filter:blur(5px);
-  z-index:0;
 }
 
 .container{
   width:350px;
   text-align:center;
-  position:relative;
-  z-index:1;
 }
 
 .card{
@@ -197,6 +184,14 @@ window.addEventListener("load", () => {
         </svg>
         <div>Telegram</div>
       </div>
+      <div class="arrow">→</div>
+    </div>
+  </a>
+
+  <!-- Make Your Own -->
+  <a href="https://github.com" target="_blank">
+    <div class="link-button" style="background:linear-gradient(90deg,#5865F2,#2AABEE); font-weight:600;">
+      <div>Click me to make your own one</div>
       <div class="arrow">→</div>
     </div>
   </a>
